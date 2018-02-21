@@ -12,10 +12,11 @@ namespace SeleniumSample
     public class UnitTest1
     {
         [TestMethod]
-        [DeploymentItem(@"..\..\Drivers\chromedriver.exe")]
+        //[DeploymentItem(@"..\..\Drivers\chromedriver.exe")]
         public void ChromeTest()
         {
-            var chromeDriver = new ChromeDriver();
+            var path = Environment.GetEnvironmentVariable("ChromeSeleniumDriverPath");
+            var chromeDriver = new ChromeDriver(path);
             chromeDriver.Navigate().GoToUrl("http://www.google.com");
             chromeDriver.FindElement(By.Id("lst-ib")).SendKeys("Hello");
             var filePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()) + ".png";
@@ -27,10 +28,11 @@ namespace SeleniumSample
         }
 
         [TestMethod]
-        [DeploymentItem(@"..\..\Drivers\geckodriver.exe")]
+        //[DeploymentItem(@"..\..\Drivers\geckodriver.exe")]
         public void FirefoxTest()
         {
-            var firefoxDriver = new FirefoxDriver();
+            var path = Environment.GetEnvironmentVariable("GeckoSeleniumDriverPath");
+            var firefoxDriver = new FirefoxDriver(path);
             firefoxDriver.Navigate().GoToUrl("http://www.google.com");
             firefoxDriver.FindElement(By.Id("lst-ib")).SendKeys("Hello");
             var filePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()) + ".png";
@@ -43,10 +45,11 @@ namespace SeleniumSample
         }
 
         [TestMethod]
-        [DeploymentItem(@"..\..\Drivers\IEDriverServer.exe")]
+        //[DeploymentItem(@"..\..\Drivers\IEDriverServer.exe")]
         public void IETest()
         {
-            var iedriver = new InternetExplorerDriver();
+            var path= Environment.GetEnvironmentVariable("IESeleniumDriverPath");
+            var iedriver = new InternetExplorerDriver(path);
             iedriver.Navigate().GoToUrl("http://www.google.com");
             iedriver.FindElement(By.Id("lst-ib")).SendKeys("Hello");
             var filePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()) + ".png";
