@@ -47,7 +47,7 @@ namespace SeleniumSample
 
         private RemoteWebDriver GetChromeDriver()
         {
-            var path = Environment.GetEnvironmentVariable("ChromeSeleniumDriverPath");
+            var path = Environment.GetEnvironmentVariable("ChromeWebDriver");
             if (!string.IsNullOrWhiteSpace(path))
             {
                 return new ChromeDriver(path);
@@ -60,7 +60,7 @@ namespace SeleniumSample
 
         private RemoteWebDriver GetFirefoxDriver()
         {
-            var path = Environment.GetEnvironmentVariable("GeckoSeleniumDriverPath");
+            var path = Environment.GetEnvironmentVariable("GeckoWebDriver");
             if (!string.IsNullOrWhiteSpace(path))
             {
                 return new FirefoxDriver(path);
@@ -73,7 +73,7 @@ namespace SeleniumSample
 
         private RemoteWebDriver GetIEDriver()
         {
-            var path = Environment.GetEnvironmentVariable("IESeleniumDriverPath");
+            var path = Environment.GetEnvironmentVariable("IEWebDriver");
             if (!string.IsNullOrWhiteSpace(path))
             {
                 return new InternetExplorerDriver(path);
